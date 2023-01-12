@@ -1,0 +1,32 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import tensorflow as tf
+from matplotlib.pyplot import specgram
+import pandas as pd
+import glob 
+from sklearn.metrics import confusion_matrix
+import librosa
+from librosa import display
+import IPython.display as ipd  # To play sound in the notebook
+import os
+import sys
+import warnings
+
+ignore warnings 
+if not sys.warnoptions:
+    warnings.simplefilter("ignore")
+warnings.filterwarnings("ignore", category=DeprecationWarning) 
+
+# introducing kaggle into google collab
+! pip install kaggle
+from google.colab import drive
+drive.mount('/content/drive')
+! mkdir ~/.kaggle
+!cp /content/drive/MyDrive/content/kaggle.json ~/.kaggle/kaggle.json
+! chmod 600 ~/.kaggle/kaggle.json
+! kaggle datasets download -d uwrfkaggler/ravdess-emotional-speech-audio
+! unzip ravdess-emotional-speech-audio.zip
+!kaggle datasets download -d ejlok1/toronto-emotional-speech-set-tess
+! unzip toronto-emotional-speech-set-tess.zip
+!pip install soundfile
+
